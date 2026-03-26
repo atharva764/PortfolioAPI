@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\c#\\PortfolioAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{29581F3B-05FC-6C51-0613-A32B11858A58}|PortfolioAPI\\PortfolioAPI.csproj|d:\\c#\\portfolioapi\\portfolioapi\\portfolioapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{29581F3B-05FC-6C51-0613-A32B11858A58}|PortfolioAPI\\PortfolioAPI.csproj|solutionrelative:portfolioapi\\portfolioapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29581F3B-05FC-6C51-0613-A32B11858A58}|PortfolioAPI\\PortfolioAPI.csproj|d:\\c#\\portfolioapi\\portfolioapi\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29581F3B-05FC-6C51-0613-A32B11858A58}|PortfolioAPI\\PortfolioAPI.csproj|solutionrelative:portfolioapi\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29581F3B-05FC-6C51-0613-A32B11858A58}|PortfolioAPI\\PortfolioAPI.csproj|d:\\c#\\portfolioapi\\portfolioapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29581F3B-05FC-6C51-0613-A32B11858A58}|PortfolioAPI\\PortfolioAPI.csproj|solutionrelative:portfolioapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ContactController.cs",
+              "DocumentMoniker": "D:\\c#\\PortfolioAPI\\PortfolioAPI\\ContactController.cs",
+              "RelativeDocumentMoniker": "PortfolioAPI\\ContactController.cs",
+              "ToolTip": "D:\\c#\\PortfolioAPI\\PortfolioAPI\\ContactController.cs",
+              "RelativeToolTip": "PortfolioAPI\\ContactController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T13:57:14.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PortfolioAPI",
+              "DocumentMoniker": "D:\\c#\\PortfolioAPI\\PortfolioAPI\\PortfolioAPI.csproj",
+              "RelativeDocumentMoniker": "PortfolioAPI\\PortfolioAPI.csproj",
+              "ToolTip": "D:\\c#\\PortfolioAPI\\PortfolioAPI\\PortfolioAPI.csproj",
+              "RelativeToolTip": "PortfolioAPI\\PortfolioAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-26T13:57:03.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\c#\\PortfolioAPI\\PortfolioAPI\\Program.cs",
+              "RelativeDocumentMoniker": "PortfolioAPI\\Program.cs",
+              "ToolTip": "D:\\c#\\PortfolioAPI\\PortfolioAPI\\Program.cs",
+              "RelativeToolTip": "PortfolioAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T07:56:25.079Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

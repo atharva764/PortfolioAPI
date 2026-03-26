@@ -1,0 +1,8 @@
+D:\c#\PortfolioAPI\PortfolioAPI\obj\Debug\net10.0\PortfolioAPI.csproj.AssemblyReference.cache
+D:\c#\PortfolioAPI\PortfolioAPI\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\c#\PortfolioAPI\PortfolioAPI\obj\Debug\net10.0\PortfolioAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\c#\PortfolioAPI\PortfolioAPI\obj\Debug\net10.0\PortfolioAPI.AssemblyInfoInputs.cache
+D:\c#\PortfolioAPI\PortfolioAPI\obj\Debug\net10.0\PortfolioAPI.AssemblyInfo.cs
+D:\c#\PortfolioAPI\PortfolioAPI\obj\Debug\net10.0\PortfolioAPI.csproj.CoreCompileInputs.cache
+D:\c#\PortfolioAPI\PortfolioAPI\obj\Debug\net10.0\PortfolioAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\c#\PortfolioAPI\PortfolioAPI\obj\Debug\net10.0\PortfolioAPI.MvcApplicationPartsAssemblyInfo.cache
