@@ -1,31 +1,23 @@
-# Build stage
+# Base image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+# Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-
-# Copy solution and project files
-COPY *.sln ./
-COPY PortfolioAPI.csproj ./
-
-# Restore dependencies
-RUN dotnet restore
-
-# Copy all project files
+COPY ["PortfolioAPI/PortfolioAPI.csproj", "PortfolioAPI/"]
+RUN dotnet restore "PortfolioAPI/PortfolioAPI.csproj"
 COPY . .
+WORKDIR "/src/PortfolioAPI"
+RUN dotnet build "PortfolioAPI.csproj" -c Release -o /app/build
 
-# Publish
-RUN dotnet publish -c Release -o /app
+FROM build AS publish
+RUN dotnet publish "PortfolioAPI.csproj" -c Release -o /app/publish
 
-# Runtime stage
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# Runtime image
+FROM base AS final
 WORKDIR /app
-
-# Copy published files
-COPY --from=build /app ./
-
-# Copy SQLite DB files
-COPY portfolio.db ./
-COPY portfolio.db-shm ./
-COPY portfolio.db-wal ./
-
-EXPOSE 7035
+COPY --from=publish /app/publish .
+COPY PortfolioAPI/portfolio.db ./portfolio.db
 ENTRYPOINT ["dotnet", "PortfolioAPI.dll"]
