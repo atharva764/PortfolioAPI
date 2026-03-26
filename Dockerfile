@@ -1,22 +1,40 @@
-# 1. Build stage using .NET SDK
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /app
+# Use .NET 8 SDK image to build the app
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-# Copy csproj and restore dependencies
-COPY *.csproj ./
+# Copy solution and project files
+COPY *.sln ./
+COPY PortfolioAPI/*.csproj ./PortfolioAPI/
+
+# Restore dependencies
 RUN dotnet restore
 
-# Copy everything and publish
-COPY . ./
-RUN dotnet publish -c Release -o out
+# Copy the rest of the project
+COPY PortfolioAPI/. ./PortfolioAPI/
 
-# 2. Runtime stage using ASP.NET
-FROM mcr.microsoft.com/dotnet/aspnet:7.0
+# Set working directory to project
+WORKDIR /src/PortfolioAPI
+
+# Publish the app to /app folder
+RUN dotnet publish -c Release -o /app
+
+# Use smaller runtime image for production
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app/out ./
 
-# Set the port from Render environment variable
-ENV ASPNETCORE_URLS=http://+:$PORT
+# Copy published files from build stage
+COPY --from=build /app ./
 
-# Run the application
+# Copy SQLite database
+COPY portfolio.db ./
+
+# Expose port Render will map
+EXPOSE 5000
+
+# Environment variables for .NET in container
+ENV DOTNET_RUNNING_IN_CONTAINER=true
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+ENV DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
+
+# Start the app
 ENTRYPOINT ["dotnet", "PortfolioAPI.dll"]
