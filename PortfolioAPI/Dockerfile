@@ -1,23 +1,23 @@
-# Base image
+# Use .NET 8 ASP.NET runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 5000
 
-# Build
+# Build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["PortfolioAPI/PortfolioAPI.csproj", "PortfolioAPI/"]
-RUN dotnet restore "PortfolioAPI/PortfolioAPI.csproj"
-COPY . .
-WORKDIR "/src/PortfolioAPI"
-RUN dotnet build "PortfolioAPI.csproj" -c Release -o /app/build
+COPY ["PortfolioAPI.csproj", "./"]
+RUN dotnet restore "./PortfolioAPI.csproj"
 
-FROM build AS publish
+COPY . .
+WORKDIR "/src/."
 RUN dotnet publish "PortfolioAPI.csproj" -c Release -o /app/publish
 
-# Runtime image
+# Final stage
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
-COPY PortfolioAPI/portfolio.db ./portfolio.db
+COPY --from=build /app/publish .
+# ✅ Copy SQLite DB (if you have an existing DB file)
+COPY portfolio.db ./
+
 ENTRYPOINT ["dotnet", "PortfolioAPI.dll"]

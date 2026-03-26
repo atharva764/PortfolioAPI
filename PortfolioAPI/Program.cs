@@ -6,11 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services
 builder.Services.AddControllers();
 
-// Database
+// Database - ensure DB file is in the same folder as DLL
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=portfolio.db"));
 
-// CORS
+// CORS - allow all origins
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -21,7 +21,15 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
+// ✅ Ensure DB tables are created
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
+
+// Optional: comment HTTPS if causing issues on Render
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
